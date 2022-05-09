@@ -5,24 +5,28 @@ drop database if exist edunovapp25;
 create database edunovapp25;
 use edunovapp25;
 create table osoba(
-    ime varchar(50),
-    prezime varchar(50),
+    sifra int not null primary key auto_increment,
+    ime varchar(50) not null,
+    prezime varchar(50) not null,
     email varchar(50),
     oib char(11)
 );
 
 create table predavac(
-    osoba int,
+    sifra int not null primary key auto_increment,
+    osoba int not null,
     iban varchar(50)
 );
 
 create table polaznik(
-    osoba int,
-    brojugovora varchar(10)
+    sifra int not null primary key auto_increment,
+    osoba int not null,
+    broj_ugovora varchar(10)
 );
 
 create table smjer(
-    naziv varchar(50),
+    sifra int not null primary key auto_increment,
+    naziv varchar(50) not null,
     cijena decimal(18,2),
     trajanje int,
     upisnina decimal(18,2),
@@ -30,7 +34,8 @@ create table smjer(
 );
 
 create table grupa(
-    naziv varchar(20),
+    sifra int not null primary key auto_increment,
+    naziv varchar(20) not null,
     datum_pocetka datetime,
     maksimalno_polaznika int,
     smjer int,
@@ -38,6 +43,7 @@ create table grupa(
 );
 
 create table clan(
-    grupa int,
-    polaznik int
+    sifra int not null primary key auto_increment,
+    grupa int not null,
+    polaznik int not null
 );
